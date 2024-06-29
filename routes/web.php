@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('test', function () {
     //return view('welcome');
-    return view('layouts.admin');
+    return \App\Models\Setting::find(26);
 });
-*/
+
