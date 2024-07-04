@@ -15,7 +15,7 @@
                                             <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>إجمالي المبيعات</h4>
+                                            <h4> {{__('admin\sidebar.total sales')}} </h4>
                                             <h6 class="text-muted"></h6>
                                         </div>
                                         <div class="col-5 text-right">
@@ -40,7 +40,7 @@
                                             <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>إجمالي الطلبات</h4>
+                                            <h4> {{__('admin\sidebar.total orders')}} </h4>
                                         </div>
                                         <div class="col-5 text-right">
                                             <h4>$944</h4>
@@ -64,7 +64,7 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>عدد المنتجات</h4>
+                                            <h4> {{__('admin\sidebar.number of products')}} </h4>
                                         </div>
                                         <div class="col-5 text-right">
                                             <h4>$1.2</h4>
@@ -88,7 +88,7 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>عدد العملاء</h4>
+                                            <h4> {{__('admin\sidebar.number of clients')}} </h4>
                                         </div>
                                         <div class="col-5 text-right">
                                             <h4>$1.2</h4>
@@ -111,7 +111,7 @@
                     <div class="col-12 col-xl-8">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">أحدث الطلبات</h4>
+                                <h4 class="card-title"> {{__('admin\sidebar.latest orders')}} </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <p class="text-muted"></p>
@@ -122,11 +122,11 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th> رقم الطلب </th>
-                                            <th> اسم العميل </th>
-                                            <th> سعر </th>
-                                            <th> حالة الطلب </th>
-                                            <th> الإجمالي </th>
+                                            <th> {{__('admin\sidebar.number of order')}} </th>
+                                            <th> {{__('admin\sidebar.client name')}} </th>
+                                            <th> {{__('admin\sidebar.price')}} </th>
+                                            <th> {{__('admin\sidebar.order status')}} </th>
+                                            <th> {{__('admin\sidebar.total')}} </th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -146,7 +146,7 @@
                     <div class="col-12 col-xl-4">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> أخر التقييمات </h4>
+                                <h4 class="card-title"> {{__('admin\sidebar.latest reviews')}} </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <p class="text-muted"></p>
@@ -157,9 +157,9 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th> العميل </th>
-                                            <th> المنتج </th>
-                                            <th> التقييم </th>
+                                            <th> {{__('admin\sidebar.client name')}}  </th>
+                                            <th> {{__('admin\sidebar.product')}}  </th>
+                                            <th> {{__('admin\sidebar.evaluation')}}  </th>
                                         </tr>
                                         </thead>
                                         <tbody>
