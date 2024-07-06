@@ -1,5 +1,7 @@
 @extends('layouts.admin')
+
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
@@ -7,10 +9,13 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{__('admin/sidebar.main')}} </a>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.dashboard')}}">{{__('admin\sidebar.main')}} </a>
                                 </li>
-                                <li class="breadcrumb-item active">
-                                    {{__('admin/sidebar.profile personly')}}
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.maincategories')}}"> {{__('admin\sidebar.main categories')}} </a>
+                                </li>
+                                <li class="breadcrumb-item active"> {{__('admin\sidebar.add a main category')}}
                                 </li>
                             </ol>
                         </div>
@@ -24,7 +29,8 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> {{__('admin/sidebar.edit profile data')}} </h4>
+                                    <h4 class="card-title"
+                                        id="basic-layout-form"> {{__('admin\sidebar.add a main category')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -37,75 +43,91 @@
                                     </div>
                                 </div>
                                 @include('dashboard.includes.alerts.success')
-                                    @include('dashboard.includes.alerts.errors')
+                                @include('dashboard.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{Route('update.profile')}}"
-                                              enctype="multipart/form-data" method="post">
+                                              action="{{route('admin.maincategories.store')}}"
+                                              method="POST"
+                                              enctype="multipart/form-data">
                                             @csrf
-                                            @method('PUT')
-                                            <input type="hidden" name="id" value="{{$admin->id}}">
+
+                                            <div class="form-group">
+                                                <label> {{__("admin\sidebar.category image")}} </label>
+                                                <label id="projectinput7" class="file center-block">
+                                                    <input type="file" id="file" name="photo">
+                                                    <span class="file-custom"></span>
+                                                </label>
+                                                @error('photo')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+
                                             <div class="form-body">
+
+                                                <h4 class="form-section"><i
+                                                        class="ft-home"></i>{{__("admin\sidebar.category data")}}</h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{__('admin/sidebar.the name')}} </label>
-                                                            <input type="text" value="{{$admin -> name}}" id="name"
+                                                            <label
+                                                                for="projectinput1"> {{__("admin\sidebar.category name")}} </label>
+                                                            <input type="text" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
+                                                                   value="{{old('name')}}"
                                                                    name="name">
                                                             @error("name")
-                                                            <span class="text-danger">{{$message}}</span>
+                                                            <span class="text-danger"> {{$message}} </span>
                                                             @enderror
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{__('admin/sidebar.email')}} </label>
-                                                            <input type="email" value="{{$admin -> email}}" id="email"
+                                                            <label
+                                                                for="projectinput1">{{__("admin\sidebar.name by link")}}</label>
+                                                            <input type="text" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
-                                                                   name="email">
-                                                            @error("email")
-                                                            <span class="text-danger">{{$message}}</span>
+                                                                   value="{{old('slug')}}"
+                                                                   name="slug">
+                                                            @error("slug")
+                                                            <span class="text-danger"> {{$message}} </span>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> {{__('admin/sidebar.new password')}} </label>
-                                                            <input type="password" value="" id=""
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   name="password">
-                                                            @error("password")
-                                                            <span class="text-danger">{{$message}}</span>
+                                                        <div class="form-group mt-1">
+                                                            <input type="checkbox" value="1"
+                                                                   name="is_active"
+                                                                   id="switcheryColor4"
+                                                                   class="switchery" data-color="success"
+                                                                   checked/>
+                                                            <label for="switcheryColor4"
+                                                                   class="card-title ml-1">{{__("admin\sidebar.status")}} </label>
+                                                            @error("is_active")
+                                                            <span class="text-danger"> {{$messge}} </span>
                                                             @enderror
                                                         </div>
                                                     </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> {{__('admin/sidebar.confirm the new password')}} </label>
-                                                            <input type="password" value="" id=""
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   name="password_confirmation">
-                                                        </div>
-                                                    </div>
                                                 </div>
-
                                             </div>
+
+
                                             <div class="form-actions">
+                                                <button type="button" class="btn btn-warning mr-1"
+                                                        onclick="history.back();">
+                                                    <i class="ft-x"></i> {{__("admin\sidebar.retreat")}}
+                                                </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i>  {{__('admin/sidebar.save')}}
+                                                    <i class="la la-check-square-o"></i> {{__("admin\sidebar.save")}}
                                                 </button>
                                             </div>
                                         </form>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -117,4 +139,4 @@
         </div>
     </div>
 
-@stop
+@endsection

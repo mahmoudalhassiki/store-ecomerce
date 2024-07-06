@@ -19,8 +19,16 @@ class Category extends Model
     {
         return $qurey->whereNull('parent_id');
     }
+    public function scopeChild($qurey)
+    {
+        return $qurey->whereNotNull('parent_id');
+    }
     public function getActive()
     {
         return $this->is_active == 1 ? __("admin\sidebar.enabled") : __("admin\sidebar.not enabled") ;
+    }
+    public function _parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
     }
 }

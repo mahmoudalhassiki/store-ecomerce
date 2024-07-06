@@ -32,21 +32,39 @@
                     <li class="active"><a class="menu-item" href="{{route('admin.maincategories')}}"
                                           data-i18n="nav.dash.ecommerce"> {{__('admin\sidebar.view all')}} </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin\sidebar.add a new category')}}</a>
+                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin\sidebar.add a new category')}}</a>
                     </li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-group"></i>
+            <li class="nav-item">
+                <a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main"> {{__('admin\sidebar.subcategories')}}   </span>
                     <span
-                        class="badge badge badge-danger badge-pill float-right mr-2"></span>
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Category::child()->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="active"><a class="menu-item" href=""
+                    <li class="active"><a class="menu-item" href="{{route('admin.subcategories')}}"
                                           data-i18n="nav.dash.ecommerce"> {{__('admin\sidebar.view all')}}  </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">{{__('admin\sidebar.add a new subcategory')}}</a>
+                    <li><a class="menu-item" href="{{route('admin.subcategories.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin\sidebar.add a new subcategory')}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> {{__('admin\sidebar.brands')}} </span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Brand::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.brands')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('admin\sidebar.view all')}}  </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.brands.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('admin\sidebar.add a new brand')}}</a>
                     </li>
                 </ul>
             </li>
@@ -61,7 +79,7 @@
                                           data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                     </li>
                     <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة
-                            متجر  </a>
+                            متجر </a>
                     </li>
                 </ul>
             </li>
@@ -100,12 +118,14 @@
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"
                                                                                     data-i18n="nav.templates.main">{{__("admin\sidebar.settings")}}</span></a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="#" data-i18n="nav.templates.vert.main"> {{__("admin\sidebar.shipping methods")}} </a>
+                    <li><a class="menu-item" href="#"
+                           data-i18n="nav.templates.vert.main"> {{__("admin\sidebar.shipping methods")}} </a>
                         <ul class="menu-content">
                             <li><a class="menu-item" href="{{Route('edit.shipping.methods', 'free')}}"
                                    data-i18n="nav.templates.vert.classic_menu"> {{__("admin\sidebar.free delivery")}}  </a>
                             </li>
-                            <li><a class="menu-item" href="{{Route('edit.shipping.methods', 'inner')}}"> {{__("admin\sidebar.internal delivery")}}  </a>
+                            <li><a class="menu-item"
+                                   href="{{Route('edit.shipping.methods', 'inner')}}"> {{__("admin\sidebar.internal delivery")}}  </a>
                             </li>
                             <li><a class="menu-item" href="{{Route('edit.shipping.methods', 'outer')}}"
                                    data-i18n="nav.templates.vert.compact_menu"> {{__("admin\sidebar.external delivery")}}  </a>
