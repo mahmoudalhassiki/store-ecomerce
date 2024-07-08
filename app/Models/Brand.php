@@ -10,8 +10,8 @@ class Brand extends Model
 {
     use HasFactory;
     use Translatable;
-    protected $with = ['translation'];
-    protected $hidden = ['translation'];
+    protected $with = ['translations'];
+    protected $hidden = ['translations'];
     protected $fillable = ['is_active', 'photo'];
     protected $casts = ['is_active' => 'boolean'];
     protected  $translatedAttributes = ['name'];

@@ -97,6 +97,29 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row hidden" id="casts_list">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label
+                                                                for="projectinput1"> {{__("admin\sidebar.select the category name")}} </label>
+                                                            <select name="parent_id" class="select2 form-control">
+                                                                <optgroup
+                                                                    label="{{__('admin\sidebar.please select the category name')}}">
+                                                                    @if($categories && $categories->count()>0)
+                                                                        @foreach($categories as $cat)
+                                                                            <option value="{{$cat->id}}">
+                                                                                {{$cat->name}}
+                                                                            </option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </optgroup>
+                                                            </select>
+                                                            @error("parent_id")
+                                                            <span class="text-danger"> {{$message}} </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mt-1">
@@ -110,6 +133,26 @@
                                                             @error("is_active")
                                                             <span class="text-danger"> {{$messge}} </span>
                                                             @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group mt-1">
+                                                            <input type="radio" value="1"
+                                                                   name="type"
+                                                                   class="switchery" data-color="success"
+                                                                   checked/>
+                                                            <label
+                                                                class="card-title ml-1">{{__("admin\sidebar.maincategory")}} </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group mt-1">
+                                                            <input type="radio" value="2"
+                                                                   name="type"
+                                                                   class="switchery" data-color="success"
+                                                            />
+                                                            <label
+                                                                class="card-title ml-1">{{__("admin\sidebar.subcategory")}} </label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -139,4 +182,16 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+    <script>
+        $('input:radio[name="type"]').change(
+            function () {
+                if(this.checked && this.value=='2')
+                    $('#casts_list').removeClass('hidden');
+                else
+                    $('#casts_list').addClass('hidden');
+            }
+        );
+    </script>
 @endsection

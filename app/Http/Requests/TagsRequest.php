@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BrandsRequest extends FormRequest
+class TagsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,14 +25,15 @@ class BrandsRequest extends FormRequest
     {
         return [
             "name" => "required",
-            "photo" => "required_without:id|mimes:jpg, jpeg, png",
+            "slug" => "required|unique:tags,slug,".$this->id,
         ];
     }
     public function messages()
     {
         return [
             'name.required' => __('admin/sidebar.you must enter the name'),
-            'photo.required_without' => __('admin/sidebar.you must enter an photo'),
+            'slug.required' => __('admin/sidebar.you must enter an slug'),
+            'slug.unique' => __('admin/sidebar.the slug has already been used'),
         ];
     }
 }

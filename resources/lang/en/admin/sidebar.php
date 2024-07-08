@@ -37,6 +37,8 @@ return [
     "the slug has already been used" => "the Name by Link has already been used",
     "you must enter the category name" => "You Must Enter The Category Name",
     "this main category does not exist" => "This Main Category does not Exist",
+    "you must enter the type" => "You Must Enter the Type",
+    "this type does not exist" => "This type does not Exist",
     //Controllers\Dashboard\SettingsController
     "success" => "Successfully implemented",
     "error" => "Something's wrong",
@@ -93,6 +95,10 @@ return [
     "choose the category name" => "Choose the Category Name",
     "please select the category name" => "Please Select the Category Name",
     "edit a subcategory" => "Edit a SubCategory",
+    "maincategory" => "MainCategory",
+    "subcategory" => "SubCategory",
+    "select the category name" => "select the Category Name",
+    "direct section" => "Direct Section",
     //Brands
     "brands" => "Brands",
     "add a new brand" => "Add a New Brand",
@@ -102,4 +108,13 @@ return [
     "brand data" => "Brand Data",
     "you must enter an photo" => "You Must Enter an Photo",
     "this brand does not exist" => "This Brand does not Exist",
+    "edit a brand" => "Edit a Brand",
+    //tags
+    "tags" => "Tags",
+    "add a new tag" => "Add a New Tag",
+    "all tag" => "All Tag",
+    "tag name" => "Tag Name",
+    "tag data" => "Tag Data",
+    "this tag does not exist" => "This Tag does not Exist",
+    "edit a tag" => "Edit a Tag",
 ];

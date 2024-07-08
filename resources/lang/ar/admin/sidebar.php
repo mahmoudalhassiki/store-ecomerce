@@ -37,6 +37,8 @@ return [
     "the slug has already been used" => "الاسم بالرابط موجود سابقا",
     "you must enter the category name" => "يجب ادخال اسم القسم الرئيسي",
     "this main category does not exist" => "هذا القسم الرئيسي غير موجود",
+    "you must enter the type" => "يجب اختيار نوع القسم",
+    "this type does not exist" => "هذا النوع غير موجود",
     //Controllers\Dashboard\SettingsController
     "success" => "تم التنفيذ بنجاح",
     "error" => "يوجد خطأ ما",
@@ -64,7 +66,7 @@ return [
     "latest orders" => "أحدث الطلبات",
     "latest reviews" => "أحدث التقييمات",
     //Categories
-    "main categories" => "الأقسام الرئيسية",
+    "main categories" => "الأقسام",
     "view all" => "عرض الكل",
     "add a new category" => "إضافة قسم",
     "subcategories" => "الأقسام الفرعية",
@@ -93,6 +95,10 @@ return [
     "choose the category name" => "اختر اسم القسم",
     "please select the category name" => "من فضلك اختر اسم القسم",
     "edit a subcategory" => "تعديل قسم فرعي",
+    "maincategory" => "قسم رئيسي",
+    "subcategory" => "قسم فرعي",
+    "select the category name" => "اختر لقسم الرئيس",
+    "direct section" => "القسم المباشر",
     //Brands
     "brands" => "الماركات التجارية",
     "add a new brand" => "إضافة ماركة جديدة",
@@ -102,4 +108,14 @@ return [
     "brand data" => "بيانات الماركة التجارية",
     "you must enter an photo" => "يجب ادخال الصورة",
     "this brand does not exist" => "هذه الماركة التجارية غير موجودة",
+    "edit a brand" => "تعديل ماركة تجارية",
+    //Tags
+    "tags" => "العلامات",
+    "add a new tag" => "إضافة علامة جديدة",
+    "all tag" => "جميع العلامات (Tags)",
+    "tag name" => "اسم العلامة (Tag)",
+    "tag data" => "بيانات العلامة (Tag)",
+    "this tag does not exist" => "هذه العلامة غير موجودة",
+    "edit a tag" => "تعديل علامة",
+
 ];
