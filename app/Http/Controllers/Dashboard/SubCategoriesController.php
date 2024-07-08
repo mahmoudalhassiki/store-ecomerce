@@ -3,46 +3,44 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MainCategoryRequest;
+use App\Http\Requests\SubCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class MainCategoriesController extends Controller
+class SubCategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::with('_parent')->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
-        return view('dashboard.categories.index', compact('categories'));
+        $categories = Category::child()->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
+        return view('dashboard.subcategories.index', compact('categories'));
     }
 
     public function create()
     {
-        $categories = Category::select('id', 'parent_id')->get();
-        return view('dashboard.categories.create', compact('categories'));
+        $categories = Category::parent()->orderBy('id', 'DESC')->paginate(PAGINATION_COUNT);
+        return view('dashboard.subcategories.create', compact('categories'));
     }
 
 
-    public function store(MainCategoryRequest $request)
+    public function store(SubCategoryRequest $request)
     {
         try {
-            //return $request;
+           // return $request;
             DB::beginTransaction();
             if (!$request->has('is_active')) {
                 $request->request->add(['is_active' => 0]);
             } else {
                 $request->request->add(['is_active' => 1]);
             }
-            if($request->type == 1)
-                $request->request->add(['parent_id'=>null]);
             $category = Category::create($request->except('_token'));
             $category->name = $request->name;
             $category->save();
             DB::commit();
-            return redirect()->route('admin.maincategories')->with(['success' => __('admin\sidebar.success')]);
+            return redirect()->route('admin.subcategories')->with(['success' => __('admin\sidebar.success')]);
         } catch (\Exception $ex) {
             DB::rollBack();
-            return redirect()->route('admin.maincategories')->with(['error' => __('admin\sidebar.error')]);
+            return redirect()->route('admin.subcategories')->with(['error' => __('admin\sidebar.error')]);
         }
     }
 
@@ -51,34 +49,36 @@ class MainCategoriesController extends Controller
     {
         $category = Category::orderBy('id', 'DESC')->find($id);
         if (!$category) {
-            return redirect()->back()->with(['error' => __('admin\sidebar.this category does not exist')]);
+            return redirect()->back()->with(['error' => __('admin\sidebar.this subcategory does not exist')]);
         }
-        return view('dashboard.categories.edit', compact('category'));
+        $categories = Category::parent()->orderBy('id', 'DESC')->get();
+        return view('dashboard.subcategories.edit', compact('category', 'categories'));
     }
 
 
-    public function update($id, MainCategoryRequest $request)
+    public function update($id, SubCategoryRequest $request)
     {
         try {
-            // return $request;
+
             DB::beginTransaction();
             if (!$request->has('is_active')) {
                 $request->request->add(['is_active' => 0]);
             } else {
                 $request->request->add(['is_active' => 1]);
             }
+           // return $request;
             $category = Category::find($id);
             if (!$category) {
-                return redirect()->route('admin.maincategories')->with(['error' => __('admin\sidebar.something went wrong, please contact your system administrator')]);
+                return redirect()->route('admin.subcategories')->with(['error' => __('admin\sidebar.something went wrong, please contact your system administrator')]);
             }
             $category->update($request->all());
             $category->name = $request->name;
             $category->save();
             DB::commit();
-            return redirect()->route('admin.maincategories')->with(['success' => __('admin\sidebar.success')]);
+            return redirect()->route('admin.subcategories')->with(['success' => __('admin\sidebar.success')]);
         } catch (\Exception $ex) {
             DB::rollBack();
-            return redirect()->route('admin.maincategories')->with(['error' => __('admin\sidebar.error')]);
+            return redirect()->route('admin.subcategories')->with(['error' => __('admin\sidebar.error')]);
         }
 
     }
@@ -89,12 +89,12 @@ class MainCategoriesController extends Controller
         try {
             $category = Category::orderBy('id', 'DESC')->find($id);
             if (!$category) {
-                return redirect()->back()->with(['error' => __('admin\sidebar.this category does not exist')]);
+                return redirect()->back()->with(['error' => __('admin\sidebar.this subcategory does not exist')]);
             }
             $category->delete();
-            return redirect()->route('admin.maincategories')->with(['error' => __('admin\sidebar.success')]);
+            return redirect()->route('admin.subcategories')->with(['error' => __('admin\sidebar.success')]);
         } catch (\Exception $ex) {
-            return redirect()->route('admin.maincategories')->with(['error' => __('admin\sidebar.error')]);
+            return redirect()->route('admin.subcategories')->with(['error' => __('admin\sidebar.error')]);
         }
     }
 
