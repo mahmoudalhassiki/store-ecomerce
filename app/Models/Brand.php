@@ -23,4 +23,8 @@ class Brand extends Model
     {
         return ($val != Null) ? asset('assets/images/brands/' . $val) : '';
     }
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
 }

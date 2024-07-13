@@ -86,6 +86,18 @@ Route::group(
 
         });
         ##############################End Tags################################
+        ##############################Products################################
+        Route::group(['prefix' => 'products'], function () {
+            Route::get('/', 'ProductsController@index')->name('admin.products');
+            Route::get('general-information', 'ProductsController@create')->name('admin.products.general.create');
+            Route::post('store-general-information', 'ProductsController@store')->name('admin.products.general.store');
+           //Route::get('edit/{id}', 'ProductsController@edit')->name('admin.products.general.edit');
+            //Route::post('update/{id}', 'ProductsController@update')->name('admin.products.general.update');
+            //Route::get('delete/{id}', 'ProductsController@destroy')->name('admin.products.general.delete');
+            //Route::get('changeStatus/{id}','SubCategoriesController@changeStatus') -> name('admin.subcategories.status');
+
+        });
+        ##############################End Products################################
     });
     Route::group(['namespace' => 'App\Http\Controllers\Dashboard', 'middleware' => 'guest:admin',
         'prefix' => 'admin'], function () {

@@ -39,6 +39,10 @@ return [
     "this main category does not exist" => "This Main Category does not Exist",
     "you must enter the type" => "You Must Enter the Type",
     "this type does not exist" => "This type does not Exist",
+    "you exceeded the permissible limit" => "You Exceeded the Permissible Limit",
+    "this field is required" => "This Field is Required",
+    "this field is an array" => "This Field is not compatible with the Data Type",
+    "this brand does not exist" => "This Brand does not Exist",
     //Controllers\Dashboard\SettingsController
     "success" => "Successfully implemented",
     "error" => "Something's wrong",
@@ -117,4 +121,16 @@ return [
     "tag data" => "Tag Data",
     "this tag does not exist" => "This Tag does not Exist",
     "edit a tag" => "Edit a Tag",
+    //products
+    "products" => "Products",
+    "add a new product" => "Add a New Product",
+    "add general product information" => "Add General Product Information",
+    "product data" => "Product Data",
+    "product name" => "Product Name",
+    "product desc" => "Product Description",
+    "product short_desc" => "Product Short-Desc",
+    "select the tags name" => "Select the Tags Name",
+    "please select the tags name" => "Please Select the Tags Name",
+    "select the brand name" => "Select the Brand Name",
+    "please select the brand name" => "Please Select the Brand Name",
 ];
