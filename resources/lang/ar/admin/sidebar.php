@@ -39,6 +39,10 @@ return [
     "this main category does not exist" => "هذا القسم الرئيسي غير موجود",
     "you must enter the type" => "يجب اختيار نوع القسم",
     "this type does not exist" => "هذا النوع غير موجود",
+    "you exceeded the permissible limit" => "تجاوزت الحد االمسموح به",
+    "this field is required" => "هذا الحقل مطلوب",
+    "this field is an array" => "هذا الحقل غير متوافق مع datatype",
+    "this brand does not exist" => "هذه الماركة غير موجودة",
     //Controllers\Dashboard\SettingsController
     "success" => "تم التنفيذ بنجاح",
     "error" => "يوجد خطأ ما",
@@ -93,7 +97,7 @@ return [
     "subcategory data" => "بيانات القسم",
     "subcategory name" => "اسم القسم الفرعي",
     "choose the category name" => "اختر اسم القسم",
-    "please select the category name" => "من فضلك اختر اسم القسم",
+    "please select the category name" => "من فضلك اختر  القسم",
     "edit a subcategory" => "تعديل قسم فرعي",
     "maincategory" => "قسم رئيسي",
     "subcategory" => "قسم فرعي",
@@ -117,5 +121,17 @@ return [
     "tag data" => "بيانات العلامة (Tag)",
     "this tag does not exist" => "هذه العلامة غير موجودة",
     "edit a tag" => "تعديل علامة",
+    //products
+    "products" => "المنتجات",
+    "add a new product" => "إضافة منتج جديد",
+    "add general product information" => "إضافة معلومات منتج",
+    "product data" => "بينات المنتج",
+    "product name" => "اسم المنتج",
+    "product desc" => "وصف المنتج",
+    "product short_desc" => "الوصف المختصر",
+    "select the tags name" => "اختر علامات دلالية",
+    "please select the tags name" => "من فضلك اختر علامات دلالية",
+    "select the brand name" => "اختر ماركة",
+    "please select the brand name" => " اختر ماركةمن فضلك",
 
 ];
